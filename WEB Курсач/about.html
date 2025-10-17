@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Про інформаційний портал Бухгалтерія Онлайн">
+    <title>Про сайт - Бухгалтерія Онлайн</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- jQuery & jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 0 4rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+
+        .about-content {
+            padding: 5rem 0;
+        }
+
+        .about-section {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .about-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .about-section ul li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .about-section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .value-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-section {
+                padding: 2rem;
+            }
+
+            .team-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-icon">₴</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="header-contacts">
+                        <span><i class="icon">📞</i> +380 44 123 45 67</span>
+                        <span><i class="icon">✉️</i> info@accounting.ua</span>
+                    </div>
+                    <div class="header-socials">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">₴</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Бухгалтерія</span>
+                            <span class="logo-subtitle">Професійний портал</span>
+                        </div>
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Головна</span>
+                    </a></li>
+                    <li><a href="about.html" class="nav-link active">
+                        <span class="nav-icon">ℹ️</span>
+                        <span>Про сайт</span>
+                    </a></li>
+                    <li><a href="gallery.html" class="nav-link">
+                        <span class="nav-icon">🖼️</span>
+                        <span>Галерея</span>
+                    </a></li>
+                    <li><a href="news.html" class="nav-link">
+                        <span class="nav-icon">📰</span>
+                        <span>Новини</span>
+                    </a></li>
+                    <li><a href="contacts.html" class="nav-link">
+                        <span class="nav-icon">📍</span>
+                        <span>Контакти</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content" data-aos="fade-up">
+                <h1>Про наш портал</h1>
+                <p>Професійна платформа для бухгалтерів України</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <div class="container">
+            <!-- Mission Section -->
+            <div class="about-section" data-aos="fade-up">
+                <h2>Наша місія</h2>
+                <p>
+                    Ми прагнемо зробити бухгалтерський облік простішим та зрозумілішим для всіх. 
+                    Наша команда експертів щоденно працює над тим, щоб надавати вам найактуальнішу 
+                    інформацію про зміни в законодавстві, нові методики обліку та кращі практики 
+                    ведення бухгалтерії.
+                </p>
+                <p>
+                    Ми віримо, що кожен бухгалтер заслуговує на доступ до якісної інформації, 
+                    професійного розвитку та підтримки колег. Саме тому ми створили цей портал - 
+                    як єдину точку входу для всього, що потрібно сучасному бухгалтеру.
+                </p>
+            </div>
+
+            <!-- Services Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="100">
+                <h2>Що ми пропонуємо</h2>
+                <p>На нашому порталі ви знайдете:</p>
+                <ul>
+                    <li>Актуальні новини про зміни в податковому законодавстві</li>
+                    <li>Професійні консультації від досвідчених бухгалтерів</li>
+                    <li>Навчальні матеріали та посібники</li>
+                    <li>Форми документів та зразки звітності</li>
+                    <li>Корисні інструменти для автоматизації обліку</li>
+                    <li>Календар важливих дат та дедлайнів</li>
+                    <li>Форум для спілкування з колегами</li>
+                    <li>База знань з відповідями на популярні питання</li>
+                </ul>
+            </div>
+
+            <!-- Values Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="200">
+                <h2>Наші цінності</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3 class="value-title">Точність</h3>
+                        <p class="value-description">
+                            Ми надаємо тільки перевірену та актуальну інформацію
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3 class="value-title">Довіра</h3>
+                        <p class="value-description">
+                            Будуємо довгострокові відносини з нашими користувачами
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3 class="value-title">Інновації</h3>
+                        <p class="value-description">
+                            Постійно впроваджуємо нові технології та рішення
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3 class="value-title">Освіта</h3>
+                        <p class="value-description">
+                            Допомагаємо бухгалтерам розвиватися професійно
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="about-section" data-aos="fade-up" data-aos-delay="300">
+                <h2>Наша команда</h2>
+                <p>
+                    Ми - команда досвідчених бухгалтерів, аудиторів, податкових консультантів 
+                    та IT-фахівців, які об'єдналися заради спільної мети - зробити бухгалтерію 
+                    в Україні кращою.
+                </p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍💼</div>
+                        <div class="team-name">Олександр Іваненко</div>
+                        <div class="team-position">Головний бухгалтер</div>
+                        <p class="team-bio">25 років досвіду в бухгалтерському обліку</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👩‍💼</div>
+                        <div class="team-name">Марина Петренко</div>
+                        <div class="team-position">Податковий консультант</div>
+                        <p class="team-bio">Експерт з податкового планування</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍💻</div>
+                        <div class="team-name">Андрій Коваль</div>
+                        <div class="team-position">IT-директор</div>
+                        <p class="team-bio">Спеціаліст з автоматизації обліку</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👩‍🎓</div>
+                        <div class="team-name">Олена Сидоренко</div>
+                        <div class="team-position">Викладач</div>
+                        <p class="team-bio">Проводить навчальні курси та тренінги</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="footer-logo">
+                            <div class="logo-icon">₴</div>
+                            <span>Бухгалтерія Онлайн</span>
+                        </div>
+                        <p class="footer-desc">Професійний інформаційний портал для бухгалтерів України з актуальними новинами та корисними матеріалами.</p>
+                        <div class="footer-socials">
+                            <a href="#" class="social-icon">f</a>
+                            <a href="#" class="social-icon">in</a>
+                            <a href="#" class="social-icon">t</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="footer-title">Швидкі посилання</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Головна</a></li>
+                            <li><a href="about.html">Про сайт</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                            <li><a href="news.html">Новини</a></li>
+                            <li><a href="contacts.html">Контакти</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="footer-title">Послуги</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Бухгалтерський облік</a></li>
+                            <li><a href="#">Податкове консультування</a></li>
+                            <li><a href="#">Аудит</a></li>
+                            <li><a href="#">Навчання</a></li>
+                            <li><a href="#">Автоматизація</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="footer-title">Контакти</h3>
+                        <ul class="footer-contacts">
+                            <li>
+                                <span class="contact-icon">📍</span>
+                                <span>м. Київ, вул. Хрещатик, 1</span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">📞</span>
+                                <span>+380 44 123 45 67</span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">✉️</span>
+                                <span>info@accounting.ua</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Бухгалтерія Онлайн. Всі права захищено.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Політика конфіденційності</a>
+                        <a href="#">Умови використання</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
